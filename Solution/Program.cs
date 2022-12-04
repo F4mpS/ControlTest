@@ -15,18 +15,25 @@
 string[] SortList(string[] list)
 {
     int sortedListLenght = CountStrings(list);
+    int startPos = 0;
     string[] sortedList = new string[sortedListLenght];
 
     for (int i = 0; i < list.Length; i++)
     {
         if (list[i].Length <= 3)
         {
-            sortedList.Append(list[i]);
+            sortedList[startPos] = list[i];
+            startPos++;
         }
-
     }
 
     return sortedList;
+}
+
+
+string GetList(string[] list)
+{
+    return "[" + string.Join(", " , list) + "]";
 }
 
 
@@ -43,4 +50,4 @@ for (int i = 0; i < l; i++)
 }
 
 string[] sortedList = SortList(userList);
-
+Console.WriteLine(GetList(userList) + " >>> " + GetList(sortedList));
